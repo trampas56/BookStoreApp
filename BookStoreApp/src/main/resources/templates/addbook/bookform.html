@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>AddBook</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Add a Book</h2>
+</header>
+
+<div class="container">
+    <form th:action="@{/addbook}" th:object="${bookFormData}" method="post">
+        <input type="text" th:field="*{title}" placeholder="Title" class="form-control" /><br/><br/>
+        <input type="text" th:field="*{summary}" placeholder="Summary" class="form-control" /> <br/><br/>
+        
+        <input type="text" th:field="*{bookAuthors}" placeholder="Authors Of The Book" class="form-control"/> <br/><br/>
+        
+        <div class="form-select">
+        <select class="form-select form-control" th:field="*{categoryId}">
+            <option th:value="1" th:text="Art" />
+            <option th:value="2" th:text="Comic" />
+            <option th:value="3" th:text="Fantasy" />
+            <option th:value="4" th:text="Fiction" />
+            <option th:value="5" th:text="Biographies" />
+            <option th:value="6" th:text="History" />
+            <option th:value="7" th:text="Science" />
+            <option th:value="8" th:text="Literature" />
+            <option th:value="9" th:text="Adventure" />
+            <option th:value="10" th:text="Crime" />
+            <option th:value="11" th:text="Other" />
+        </select>
+        
+	</div>
+        <br/>
+        <button type="submit" class="btn btn-light btn-sm">Add Book</button>
+    </form>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

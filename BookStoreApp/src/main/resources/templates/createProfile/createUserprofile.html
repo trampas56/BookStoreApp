@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Create Profile</title>
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000000;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+	<form th:action="@{/makeprofile}" method="post">
+    	<h1>Create Profile</h1>
+    	<input type="hidden" name="username" th:value="${username}" />
+    	<br/>
+    	<button type="submit" class="btn btn-light btn-sm mb-3">Create Profile</button>
+	</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>User Profile</title>
+	
+	<style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+
+        .buttons {
+        	margin-right: 100px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .btn {
+            margin: 10px;
+        }
+        
+    </style>
+</head>
+
+
+<body>
+<body style="background-color: #000000;">
+
+
+<div class="container">
+
+  <form th:action="@{/saveprofile}" th:object="${userProfile}"  method="post">
+  	<h3>Create Your Profile</h3>
+  	<input type="hidden" th:field="*{username}" placeholder="Username" /> <br/><br/>
+	<select th:field="*{age}">
+    	<option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="'Age ' + ${i}"></option>
+	</select><br/><br/>
+  	<input type="text" th:field="*{address}" placeholder="Address" /> <br/><br/>
+  	<input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" /> <br/><br/>
+
+  	<input type="text" th:field="*{favouriteBookAuthors}" placeholder="Favourite Book Authors" /> <br/><br/>
+  	
+  	<div class="form-select"> 
+        <label class="form-label" style="background-color: white;">Favourite Book Categories:</label>
+        <select class="form-select" multiple th:field="*{favouriteBookCategories}">
+            <option th:value="1" th:text="Art" />
+            <option th:value="2" th:text="Comic" />
+            <option th:value="3" th:text="Fantasy" />
+            <option th:value="4" th:text="Fiction" />
+            <option th:value="5" th:text="Biographies" />
+            <option th:value="6" th:text="History" />
+            <option th:value="7" th:text="Science" />
+            <option th:value="8" th:text="Literature" />
+            <option th:value="9" th:text="Adventure" />
+            <option th:value="10" th:text="Crime" />
+            <option th:value="11" th:text="Other" />
+        </select>
+        
+	</div>
+  	
+  	
+  	
+  	<button type="submit" class="btn btn-light btn-sm mb-3">Create Profile</button> 
+  	
+  	<div th:utext="${successMessage}"></div>
+  </form>
+  </div>
+</body>
+</html>

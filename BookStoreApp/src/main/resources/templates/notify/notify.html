@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Notifications</title>
+       
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* Align items to the left and right */
+            align-items: center; /* Align items vertically */
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-container-right {
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+        
+        .btn-container {
+            margin-top: 10px;
+        }
+
+        .btn {
+            margin: 5px;
+        }
+        
+        .header-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn-container-right {
+            margin-left: auto; /* Move the Add Book button to the right */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-buttons">
+        <h2 style="margin: 0;">Notifications</h2>
+        
+        <!-- Home Button -->
+        <div class="btn-container">
+            <a th:href="@{/usermainmenu}" class="btn btn-light btn-sm">Home</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+	<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Notification</th>
+    </tr>
+  </thead>
+  <tbody>
+			<tr th:each="notification : ${notifications}">
+				<td th:text="${notification}"></td>			
+			</tr>
+		</tbody>
+</table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

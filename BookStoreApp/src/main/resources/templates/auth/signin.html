@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Login</title>
+	
+	<style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+        }
+
+        .buttons {
+        	margin-right: 100px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .btn {
+            margin: 10px;
+        }
+        
+    </style>
+    
+</head>
+
+
+<body>
+
+<body style="background-color: #000000;">
+
+<div class="container">
+
+    <form th:action="@{/login}" method="POST" >
+        <h3 th:text="Login"></h3>
+        <input type="text" name="username" th:placeholder="Username" /> <br /><br />
+        <input type="password" th:placeholder="Password" name="password" /> <br /><br />
+        <button type="Submit" class="btn btn-light btn-sm-3"> Login </button>
+        <a th:href="@{register}" class="btn btn-light btn-sm-3"> Register </a><br />
+        
+        <div th:if="${param.error}"><p>Username or Password is invalid.</p></div> <br/> 
+   
+   		<div th:utext="${successMessage}"></div>
+    </form>
+
+</div>
+
+</body>
+</html>

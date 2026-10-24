@@ -6,10 +6,10 @@ It uses Spring Boot, Spring Security (passwords are stored with BCrypt), Thymele
 
 ## Running it
 
-You need Java 17, Maven and MySQL with a database called `bookstoreapp`. The app connects as `root` and reads the password from the `DB_PASSWORD` environment variable:
+You need Java 17 and MySQL with a database called `bookstoreapp`. Maven isn't needed, `./mvnw` downloads it the first time (on Windows use `mvnw.cmd`). The app connects as `root` and reads the password from the `DB_PASSWORD` environment variable:
 
 ```bash
-DB_PASSWORD=your_mysql_password mvn spring-boot:run
+DB_PASSWORD=your_mysql_password ./mvnw spring-boot:run
 ```
 
 Then open http://localhost:8080. The tables are created automatically and the book categories are added on startup.

@@ -8,3 +8,6 @@ bin/
 .idea/
 *.iml
 .vscode/
+
+# downloaded by mvnw
+.mvn/wrapper/maven-wrapper.jar

@@ -4,6 +4,16 @@ A Spring Boot web app where users trade books with each other. You sign up, make
 
 It uses Spring Boot, Spring Security (passwords are stored with BCrypt), Thymeleaf and MySQL. There's a user and an admin role.
 
+## How it's built
+
+The usual layers: controllers, services, DAOs (Spring Data JPA repositories) and the model. These are the model classes, from the UML in my report:
+
+![The model classes in UML](images/model-uml.png)
+
+The search uses the Strategy and Template Method patterns. `TemplateSearchStrategy` does the common steps, and the exact and approximate search only change how the first list of books is made and how the authors are matched:
+
+![The search strategies in UML](images/search-strategies.png)
+
 ## Running it
 
 You need Java 17 and MySQL with a database called `bookstoreapp`. Maven isn't needed, `./mvnw` downloads it the first time (on Windows use `mvnw.cmd`). The app connects as `root` and reads the password from the `DB_PASSWORD` environment variable:
